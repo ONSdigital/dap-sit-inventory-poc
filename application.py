@@ -17,6 +17,20 @@ app.jinja_env.filters["setAttributes"] = setAttributes
 app.jinja_env.undefined = ChainableUndefined
 
 
+@app.route("/inventory/home")
+def home():
+    return render_template("home.html.j2", title="Data Access Platform Inventory")
+
+
+@app.route("/inventory/project-workspace-details/<project_workspace_name>")
+def project_workspace_details(project_workspace_name):
+    return render_template(
+        "project-workspace-details.html.j2",
+        title="Project Workspace Details",
+        project_workspace_name=project_workspace_name,
+    )
+
+
 @app.route("/<path:filename>")
 def generate_images(filename):
     return send_from_directory("static/", filename)

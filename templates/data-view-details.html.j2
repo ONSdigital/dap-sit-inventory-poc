@@ -1,0 +1,53 @@
+{% extends "layout/_template.njk" %}
+{%
+  set pageConfig = {
+      "title": title,
+      "header": {
+          "title": title
+      },
+      "footer": {
+          "oglLink": {
+              "pre": 'All content is available under the',
+              "link": 'Open Government Licence v3.0',
+              "url": 'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/',
+              "post": ', except where otherwise stated'
+          }
+      }
+  }
+%}
+{% block main %}
+  {% from "components/details-panel/_macro.njk" import onsDetailsPanel %}
+
+  {{
+    onsDetailsPanel({
+        "open": true,
+        "title": project_workspace_name,
+        "detailsItems": [
+            {
+                "text": 'Owners',
+                "description": '<ul><li>Maverick Pierce</li><li>Jamie Nichols</li><li>Annabella Hoffman</li></ul>'
+            },
+            {
+                "text": 'Owners Directorate',
+                "description": '<ul><li>Digital Services</li></ul>'
+            },
+            {
+                "text": 'Users',
+                "description": '<ul><li>Maverick Pierce (Workspace Owner)</li><li>Jamie Nichols (Deputy Workspace Owner)</li><li>Annabella Hoffman (Deputy Workspace Owner)</li></ul>'
+            },
+            {
+                "text": 'Users Roles With Elavated Permissions',
+                "description": '<ul><li>Workspace Owner</li></ul>'
+            },
+            {
+                "text": 'File Location',
+                "description": '<ul><li>Temporary Data Storage Area</li></ul>'
+            },
+            {
+                "text": 'Information Asset Register (IAR) Number',
+                "description": '<ul><li>REF-987654321</li></ul>'
+            }
+        ]
+    })
+  }}
+{% endblock %}

@@ -1,0 +1,139 @@
+{% extends "layout/_template.njk" %}
+{%
+  set pageConfig = {
+      "title": title,
+      "header": {
+          "title": title
+      },
+      "footer": {
+          "oglLink": {
+              "pre": 'All content is available under the',
+              "link": 'Open Government Licence v3.0',
+              "url": 'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/',
+              "post": ', except where otherwise stated'
+          }
+      }
+  }
+%}
+{% block main %}
+  {% from "components/input/_macro.njk" import onsInput %}
+  {{
+    onsInput({
+        "id": 'search-field',
+        "label": {
+            'text': 'Search',
+            "classes": 'ons-u-pb-3xs ons-u-mb-no'
+        },
+        "searchButton": {
+            "visuallyHideButtonText": true,
+            "text": 'Search',
+            "iconType": 'search'
+        }
+    })
+  }}
+
+  <br />
+
+  {% from "components/hero/_macro.njk" import onsHero %}
+  {{
+    onsHero({
+        "title": 'Data Access Platform Inventory',
+        "text": 'This is the inventory of the Data Access Platform',
+        "variants": 'pale-blue'
+    })
+  }}
+  {% from "components/table-of-contents/_macro.njk" import onsTableOfContents %}
+
+  {{-
+    onsTableOfContents({
+        "title": 'Cloudera workspaces',
+        "ariaLabel": 'Links to page sections',
+        "skipLink": {
+            "url": '#0',
+            "text": 'Skip to guide content'
+        },
+        "lists": [
+            {
+                "listHeading": 'Cloudera Workspace 1',
+                "listHeadingHidden": 'help topics',
+                "itemsList": [
+                    {
+                        "url": 'http://localhost:5000/inventory/project-workspace-details/Project%20Workspace%201:%20Household%20and%20who%20lives%20here',
+                        "text": 'Project Workspace 1: Household and who lives here'
+                    },
+                    {
+                        "url": 'http://localhost:5000/inventory/project-workspace-details/Project%20Workspace%202:%20Housing,%20sex%20and%20GI',
+                        "text": 'Project Workspace 2: Housing, sex and GI'
+                    }
+                ]
+            },
+            {
+                "listHeading": 'Cloudera Workspace 2',
+                "listHeadingHidden": 'help topics',
+                "itemsList": [
+                    {
+                        "url": '#individual1',
+                        "text": 'Project Workspace 1: Name, date of birth and marital status'
+                    },
+                    {
+                        "url": '#individual2',
+                        "text": 'Project Workspace 2: Language, religion and ethnicity'
+                    },
+                    {
+                        "url": '#individual3',
+                        "text": 'Project Workspace 3: Address, health and sexual orientation'
+                    },
+                    {
+                        "url": '#individual4',
+                        "text": 'Project Workspace 4: Education and employment'
+                    }
+                ]
+            },
+            {
+                "listHeading": 'Cloudera Workspace 3',
+                "listHeadingHidden": 'help topics',
+                "itemsList": [
+                    {
+                        "url": '#individual1',
+                        "text": 'Project Workspace 1: Name, date of birth and marital status'
+                    },
+                    {
+                        "url": '#individual2',
+                        "text": 'Project Workspace 2: Language, religion and ethnicity'
+                    },
+                    {
+                        "url": '#individual3',
+                        "text": 'Project Workspace 3: Address, health and sexual orientation'
+                    },
+                    {
+                        "url": '#individual4',
+                        "text": 'Project Workspace 4: Education and employment'
+                    }
+                ]
+            },
+            {
+                "listHeading": 'Cloudera Workspace 4',
+                "listHeadingHidden": 'help topics',
+                "itemsList": [
+                    {
+                        "url": '#individual1',
+                        "text": 'Project Workspace 1: Name, date of birth and marital status'
+                    },
+                    {
+                        "url": '#individual2',
+                        "text": 'Project Workspace 2: Language, religion and ethnicity'
+                    },
+                    {
+                        "url": '#individual3',
+                        "text": 'Project Workspace 3: Address, health and sexual orientation'
+                    },
+                    {
+                        "url": '#individual4',
+                        "text": 'Project Workspace 4: Education and employment'
+                    }
+                ]
+            }
+        ]
+    })
+  -}}
+{% endblock %}
