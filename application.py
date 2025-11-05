@@ -38,6 +38,11 @@ def user_view():
     )
 
 
+@app.route("/inventory/data-view")
+def data_view():
+    return render_template("data-view-details.html.j2", title="Data View")
+
+
 @app.route("/<path:filename>")
 def generate_images(filename):
     return send_from_directory("static/", filename)
