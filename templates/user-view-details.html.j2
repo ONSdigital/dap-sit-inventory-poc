@@ -1,0 +1,57 @@
+{% extends "layout/_template.njk" %}
+{%
+  set pageConfig = {
+      "title": title,
+      "header": {
+          "title": title
+      },
+      "footer": {
+          "oglLink": {
+              "pre": 'All content is available under the',
+              "link": 'Open Government Licence v3.0',
+              "url": 'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/',
+              "post": ', except where otherwise stated'
+          }
+      }
+  }
+%}
+{% block main %}
+  {% from "components/details-panel/_macro.njk" import onsDetailsPanel %}
+
+  {{
+    onsDetailsPanel({
+        "open": true,
+        "title": user,
+        "detailsItems": [
+            {
+                "text": 'DAP User',
+                "description": '<ul><li><b>Name:</b> Maverick Pierce</li><li><b>Username:</b> mpirce</li><li><b>Email:</b> maverick.pierce@ons.gov.uk</li></ul>'
+            },
+            {
+                "text": 'DAP Project/s',
+                "description": '<ul><li><b>Name:</b> Project Workspace 1: Household and who lives here</li><li><b>AD Group:</b> Group_123</li><li><b>Name:</b> Project Workspace 2: Housing, sex and GI</li><li><b>AD Group:</b> Group_124</li></ul>'
+            },
+            {
+                "text": 'Workspace Owner/s',
+                "description": '<ul><li>Maverick Pierce (Workspace Owner)</li><li>Jamie Nichols (Deputy Workspace Owner)</li><li>Annabella Hoffman (Deputy Workspace Owner)</li></ul>'
+            },
+            {
+                "text": 'Expl VDI',
+                "description": '<ul><li>Yes</li></ul>'
+            },
+            {
+                "text": 'Mandatory training completion date',
+                "description": '<ul><li>Wed 5 Nov 2025</li></ul>'
+            },
+            {
+                "text": 'Disco Training completion date',
+                "description": '<ul><li>Wed 5 Nov 2025</li></ul>'
+            },
+            {
+                "text": 'Last logged in in to DAP date',
+                "description": '<ul><li>Wed 5 Nov 2025</li></ul>'
+            },
+        ]
+    })
+  }}
+{% endblock %}

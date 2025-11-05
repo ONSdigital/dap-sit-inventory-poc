@@ -31,6 +31,13 @@ def project_workspace_details(project_workspace_name):
     )
 
 
+@app.route("/inventory/user-view")
+def user_view():
+    return render_template(
+        "user-view-details.html.j2", title="User View", user="Maverick Pierce"
+    )
+
+
 @app.route("/<path:filename>")
 def generate_images(filename):
     return send_from_directory("static/", filename)
