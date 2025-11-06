@@ -40,7 +40,11 @@ def user_view():
 
 @app.route("/inventory/data-view")
 def data_view():
-    return render_template("data-view-details.html.j2", title="Data View")
+    return render_template(
+        "data-view-details.html.j2",
+        title="Data View",
+        dap_dataset="Household and who lives here",
+    )
 
 
 @app.route("/<path:filename>")
