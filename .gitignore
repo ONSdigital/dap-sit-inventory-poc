@@ -9,3 +9,4 @@ venv
 *.code-workspace
 .env
 .idea/
+*.zip
