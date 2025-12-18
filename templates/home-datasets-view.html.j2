@@ -1,0 +1,87 @@
+{% extends "layout/_template.njk" %}
+{%
+  set pageConfig = {
+      "title": title,
+      "header": {
+          "title": title
+      },
+      "footer": {
+          "oglLink": {
+              "pre": 'All content is available under the',
+              "link": 'Open Government Licence v3.0',
+              "url": 'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/',
+              "post": ', except where otherwise stated'
+          }
+      }
+  }
+%}
+{% block main %}
+  {% from "components/input/_macro.njk" import onsInput %}
+  {{
+    onsInput({
+        "id": 'search-field',
+        "label": {
+            'text': 'Search',
+            "classes": 'ons-u-pb-3xs ons-u-mb-no'
+        },
+        "searchButton": {
+            "visuallyHideButtonText": true,
+            "text": 'Search',
+            "iconType": 'search'
+        }
+    })
+  }}
+
+  <br />
+
+  {% from "components/hero/_macro.njk" import onsHero %}
+  {{
+    onsHero({
+        "title": 'Data Access Platform Inventory',
+        "text": 'This is the inventory of the Data Access Platform',
+        "variants": 'pale-blue'
+    })
+  }}
+  {% from "components/table-of-contents/_macro.njk" import onsTableOfContents %}
+
+  {{-
+    onsTableOfContents({
+        "title": 'Inventory Datasets',
+        "ariaLabel": 'Links to page sections',
+        "skipLink": {
+            "url": '#0',
+            "text": 'Skip to guide content'
+        },
+        "lists": [
+            {
+                "itemsList": [
+                    {
+                        "url": 'http://localhost:5000/inventory/data-view/Household%20and%20who%20lives%20here',
+                        "text": 'Household and who lives here'
+                    },
+                    {
+                        "url": 'http://localhost:5000/inventory/data-view/Housing,%20sex%20and%20GI',
+                        "text": 'Housing, sex and GI'
+                    },
+                    {
+                        "url": 'http://localhost:5000/inventory/data-view/Name,%20date%20of%20birth%20and%20marital%20status',
+                        "text": 'Name, date of birth and marital status'
+                    },
+                    {
+                        "url": 'http://localhost:5000/inventory/data-view/Language,%20religion%20and%20ethnicity',
+                        "text": 'Language, religion and ethnicity'
+                    },
+                    {
+                        "url": 'http://localhost:5000/inventory/data-view/Address,%20health%20and%20sexual%20orientation',
+                        "text": 'Address, health and sexual orientation'
+                    },
+                    {
+                        "url": 'http://localhost:5000/inventory/data-view/Education%20and%20employment',
+                        "text": 'Education and employment'
+                    }
+                ]
+            }
+        ]
+    })
+  -}}
+{% endblock %}
