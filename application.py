@@ -22,6 +22,13 @@ def home():
     return render_template("home.html.j2", title="Data Access Platform Inventory")
 
 
+@app.route("/inventory/datasets")
+def home_datasets():
+    return render_template(
+        "home-datasets-view.html.j2", title="Data Access Platform Inventory"
+    )
+
+
 @app.route("/inventory/project-workspace-details/<project_workspace_name>")
 def project_workspace_details(project_workspace_name):
     return render_template(
@@ -44,6 +51,15 @@ def data_view():
         "data-view-details.html.j2",
         title="Data View",
         dap_dataset="Household and who lives here",
+    )
+
+
+@app.route("/inventory/data-view/<dataset_name>")
+def data_view_(dataset_name):
+    return render_template(
+        "data-view-details.html.j2",
+        title="Data View",
+        dap_dataset=dataset_name,
     )
 
 
