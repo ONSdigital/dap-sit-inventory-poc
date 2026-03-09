@@ -6,6 +6,8 @@ from jinja2 import ChainableUndefined
 
 app = Flask(__name__)
 
+ENVIRONMENT = os.environ.get("ENVIRONMENT", "development")
+
 
 def setAttributes(dictionary, attributes):
     for key in attributes:
@@ -19,7 +21,9 @@ app.jinja_env.undefined = ChainableUndefined
 
 @app.route("/inventory/home")
 def home():
-    return render_template("home.html.j2", title="Data Access Platform Inventory")
+    return render_template(
+        "home.html.j2", title="Data Access Platform Inventory", environment=ENVIRONMENT
+    )
 
 
 @app.route("/inventory/datasets")
